@@ -1,0 +1,58 @@
+
+<div style="margin-top: 10px;" class="card-group">
+    <div class="card">
+        <div>
+            <h1 style="font-size: larger; margin-top: 10px;">AHORCADO</h1>
+        </div>
+        <br>
+        <div class="row">
+            <br>
+            <div class="col text-center">
+                <img style="width: 500px;border-radius: 50%;margin-top: 10px; " height="500px" class="ahorcado-img"
+                    src="./assets/img/{{ intentos }}.png" alt="ahorcado-img">
+            </div>
+        </div>
+        <br>
+
+        <br>
+        <div class="intentos">
+            <h1>Intentos <h1> {{ intentos }} / 7</h1>
+            </h1>
+        </div>
+        <br>
+
+        <div class="row">
+            <div class="col text-center">
+                <h3>{{ palabraOculta }}</h3>
+            </div>
+        </div>
+        <br>
+        <br>
+        <div *ngIf="!gano && !perdio" class="row">
+            <div class="col text-center">
+                <button style="margin-left: 5px;" *ngFor="let letra of letras" class="p-container"
+                    (click)="comprobar( letra )">
+                    {{ letra }}
+                </button>
+            </div>
+        </div>
+
+
+        <div *ngIf="perdio" class="row">
+            <div class="col text-center">
+                <h1 class="alert alert-danger">Ups! Ya perdiste!!! </h1>
+                <h4>La palabra es: {{ name }}</h4>
+                <br>
+            </div>
+        </div>
+
+
+        <div *ngIf="gano" class="row">
+            <div class="col text-center alert alert-success">
+                <h3>Felicidades! Ya ganaste!!! </h3>
+            </div>
+        </div>
+    </div>
+
+
+</div>

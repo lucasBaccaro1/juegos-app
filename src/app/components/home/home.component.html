@@ -1,0 +1,24 @@
+<nav  class="navbar hljs-built_in">
+    <p *ngIf="userLogged|async as user">
+      <input style="float: right;"   [routerLink]="['#']" type="text" name="usuario" id="go" value={{user.email}} disabled>
+    </p>
+  </nav>
+
+  <p class="p-container">
+    <input [routerLink]="['/home/quiensoy']" type="submit" name="quien-soy" id="go" value="Quien soy">
+  </p>
+<!-- 
+  <p class="p-container">
+    <input  [routerLink]="['/home/juegos']" type="submit" name="juegos" id="go" value="Juegos">
+  </p> -->
+
+  <p class="p-container">
+    <input  [routerLink]="['/home/listado']" type="submit" name="juegos" id="go" value="Listado de juegos">
+  </p>
+
+  <p  class="p-container">
+    <input [routerLink]="['#']" type="submit" name="logout" id="go" (click)="logout()" value="Salir">
+  </p>
+
+<router-outlet></router-outlet>
+

@@ -1,0 +1,57 @@
+<p>login works!</p>
+
+<div class="background-wrap">
+    <div class="background"></div>
+  </div>
+  
+  <form id="accesspanel" action="login">
+    <h1 id="litheader">LuquiGames</h1>
+    <div class="inset">
+      <p>
+        <input type="text" name="username" id="email" placeholder="Email address" [(ngModel)] = "usuario.email">
+      </p>
+      <p>
+
+
+        <input type="password" name="password" id="password" placeholder="Access code" [(ngModel)] = "usuario.password" >
+      </p>
+
+
+    </div>
+    
+    <p class="p-container">
+      <input [routerLink]="['/#']" type="submit"  name="Login" id="login" value="Login" (click)="login()">
+    </p>
+
+    <p class="p-container">
+      <input [routerLink]="['/#']" type="submit" name="Login" id="register" value="Register" (click)="register()">
+    </p>
+  </form>
+
+  <script>
+      $(document).ready(function() {
+
+var state = false;
+
+//$("input:text:visible:first").focus();
+
+$('#accesspanel').on('submit', function(e) {
+
+    e.preventDefault();
+
+    state = !state;
+
+    if (state) {
+        document.getElementById("litheader").className = "poweron";
+        document.getElementById("go").className = "";
+        document.getElementById("go").value = "Initializing...";
+    }else{
+        document.getElementById("litheader").className = "";
+        document.getElementById("go").className = "denied";
+        document.getElementById("go").value = "Access Denied";
+    }
+
+});
+
+});
+  </script>
